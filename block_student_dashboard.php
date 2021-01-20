@@ -80,9 +80,10 @@ class block_student_dashboard extends block_base
         $couse_map = array(
             'Carpentry'=>212,
             'Carpentry N'=>212,
-            'Wall'=>214,
+            'Wall'=>213,
             'Wall N'=>214,
             'Cert IV'=> 301,
+            'Dip'=>668
         )
         ;
         # Hide for temporary
@@ -104,6 +105,40 @@ class block_student_dashboard extends block_base
                         $grade_name = $DB->get_field('course','fullname',array('id' => $course_code));
                         # Hide for temporary
                         $content .= '<li>'.html_writer::link($grade_url,$grade_name).'</li>';
+                        #$content.=$DB->set_debug(true);
+                        ## Counting total units
+                        $sql_count="SELECT 
+                                COUNT(2) as units
+                            FROM
+                                {grade_grades} AS g
+                                    LEFT JOIN
+                                {grade_items} AS i ON g.itemid = i.id
+                            WHERE
+                            courseid=:courseid AND i.itemtype = 'mod'
+                                    AND userid =:userid
+                                    AND g.finalgrade / g.rawgrademax >= 1 ";
+                        $param_count=array('userid'=>$user_id,'courseid'=>$course_code);
+
+                        $satisfy_units=$DB->get_record_sql($sql_count,$param_count);
+              
+                        $param_count_total=array('courseid'=>$course_code,'itemtype'=>'mod');
+                        $total_units=$DB->count_records('grade_items',$param_count_total);
+                        $percent= round($satisfy_units->units/$total_units*100);
+                        $content.=html_writer::start_div('progress');
+                            $content.=html_writer::start_div('progress-bar progress-bar-warning progress-bar-striped',
+                                array(
+                                    'role'=>"progressbar",
+                                    'aria-valuenow'=>$percent,
+                                    'aria-valuemin'=>"0",
+                                    'aria-valuemax'=>"100",
+                                    'style'=>"width:".$percent."%"
+                                ));
+                            $content.="$percent% Complete ".strval($satisfy_units->units)." of";
+
+                            $content.=html_writer::end_div();
+
+                        $content.=html_writer::end_div();
+
                     }      
                     else{
 
