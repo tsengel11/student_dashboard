@@ -105,49 +105,81 @@ class block_student_dashboard extends block_base
                     //   
                     // I""
 
-                    "select count(*) from(
-
-                        select sum(finalgrade)/sum(rawgrademax) as grade,
-                        SUBSTRING_INDEX(i.itemname,':',1) as unit_code
-                        from mdl_grade_grades as g
-                        left join mdl_grade_items as i on g.itemid = i.id
-                        where i.courseid = 212
-                        and g.userid=427
-                        and i.itemtype = 'mod'
-                        group by unit_code) as grade_count
-                        where grade>=1";
+                    "";
 
 
                     $course_code = $couse_map[$plan];     
                     $content.= $couse_map[$plan];
+                    $carpentry_coursecode=212;
+                    $carpentry_totalunit=30;
                     
+                    // Checking enrollment of Grading reports
                     $sql = "SELECT count(2) as num FROM {user_enrolments} as u
                             left join {enrol} as e on u.enrolid=e.id
                             WHERE userid =:userid AND courseid=:courseid";                  
                     $param = ['userid'=>$user_id,'courseid'=>$course_code];     
                     $result = $DB->count_records_sql($sql,$param);
 
+                    // If student enrolled in grading report, it will show the grading report link
                     if ($result>0){                
                         $grade_url = $link."/course/user.php?mode=grade&id=".$course_code."&user=".$user_id;
                         $grade_name = $DB->get_field('course','fullname',array('id' => $course_code));
                         # Hide for temporary
                         $content .= '<li>'.html_writer::link($grade_url,$grade_name).'</li>';
                         #$content.=$DB->set_debug(true);
-                        ## Counting total units
-                        $sql_count="SELECT 
-                                COUNT(2) as units
+
+
+
+                        ## Counting satesfied unit number
+
+                        # The carpentry units have diffrent sturtures.
+                        if($course_code==$carpentry_coursecode){
+                            $sql_count = "SELECT 
+                            COUNT(*)
+                        FROM
+                            (SELECT 
+                                SUM(finalgrade) / SUM(rawgrademax) AS grade,
+                                    SUBSTRING_INDEX(i.itemname, ':', 1) AS unit_code
                             FROM
-                                {grade_grades} AS g
-                                    LEFT JOIN
-                                {grade_items} AS i ON g.itemid = i.id
+                            {grade_grades} AS g
+                            LEFT JOIN {grade_items} AS i ON g.itemid = i.id
                             WHERE
-                            courseid=:courseid AND i.itemtype = 'mod'
-                                    AND userid =:userid
-                                    AND g.finalgrade / g.rawgrademax >= 1 ";
+                                i.courseid = :courseid AND g.userid = :userid
+                                    AND i.itemtype = 'mod'
+                            GROUP BY unit_code) AS grade_count
+                        WHERE
+                            grade >= 1";
+                        $total_units=$carpentry_totalunit;
                         $param_count=array('userid'=>$user_id,'courseid'=>$course_code);
+
                         $satisfy_units=$DB->get_record_sql($sql_count,$param_count);
+                        print_object($satisfy_units);
+
+
+                        }
+                        else{
+                            $sql_count="SELECT 
+                            COUNT(2) as units
+                        FROM
+                            {grade_grades} AS g
+                                LEFT JOIN
+                            {grade_items} AS i ON g.itemid = i.id
+                        WHERE
+                        courseid=:courseid AND i.itemtype = 'mod'
+                                AND userid =:userid
+                                AND g.finalgrade / g.rawgrademax >= 1 ";
+
                         $param_count_total=array('courseid'=>$course_code,'itemtype'=>'mod');
                         $total_units=$DB->count_records('grade_items',$param_count_total);
+                        
+                        $param_count=array('userid'=>$user_id,'courseid'=>$course_code);
+                        $satisfy_units=$DB->get_record_sql($sql_count,$param_count);
+
+                        }
+                        
+
+                        
+
                         $percent= round($satisfy_units->units/$total_units*100);
                         $content.=html_writer::start_div('progress');
                             $content.=html_writer::start_div('progress-bar progress-bar-warning progress-bar-striped',
