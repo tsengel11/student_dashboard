@@ -95,6 +95,7 @@ class block_student_dashboard extends block_base
 
         
         # Hide for temporary
+        $content .= '<hr>';
         $content .= '<h5>My Grade:</h5>';
         try{
             $plan_name_object = $DB->get_records('user_info_data', ['userid' => $user_id]);
@@ -103,7 +104,7 @@ class block_student_dashboard extends block_base
                 foreach($plan_name_array as $plan) {       
                     "";
                     $course_code = $couse_map[$plan];     
-                    $content.= $couse_map[$plan];
+                    // $content.= $couse_map[$plan];
                     $carpentry_coursecode=212;
                     $carpentry_totalunit=30;
                     
