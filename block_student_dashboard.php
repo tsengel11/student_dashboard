@@ -101,13 +101,7 @@ class block_student_dashboard extends block_base
             $plan_name = reset($plan_name_object)->data;
             $plan_name_array = explode(" + ",$plan_name);
                 foreach($plan_name_array as $plan) {       
-                    
-                    //   
-                    // I""
-
                     "";
-
-
                     $course_code = $couse_map[$plan];     
                     $content.= $couse_map[$plan];
                     $carpentry_coursecode=212;
@@ -135,7 +129,7 @@ class block_student_dashboard extends block_base
                         # The carpentry units have diffrent sturtures.
                         if($course_code==$carpentry_coursecode){
                             $sql_count = "SELECT 
-                            COUNT(*)
+                            COUNT(*) as units
                         FROM
                             (SELECT 
                                 SUM(finalgrade) / SUM(rawgrademax) AS grade,
@@ -151,10 +145,6 @@ class block_student_dashboard extends block_base
                             grade >= 1";
                         $total_units=$carpentry_totalunit;
                         $param_count=array('userid'=>$user_id,'courseid'=>$course_code);
-
-                        $satisfy_units=$DB->get_record_sql($sql_count,$param_count);
-                        print_object($satisfy_units);
-
 
                         }
                         else{
@@ -172,11 +162,11 @@ class block_student_dashboard extends block_base
                         $param_count_total=array('courseid'=>$course_code,'itemtype'=>'mod');
                         $total_units=$DB->count_records('grade_items',$param_count_total);
                         
-                        $param_count=array('userid'=>$user_id,'courseid'=>$course_code);
-                        $satisfy_units=$DB->get_record_sql($sql_count,$param_count);
+
 
                         }
-                        
+                        $param_count=array('userid'=>$user_id,'courseid'=>$course_code);
+                        $satisfy_units=$DB->get_record_sql($sql_count,$param_count);
 
                         
 
@@ -190,7 +180,13 @@ class block_student_dashboard extends block_base
                                     'aria-valuemax'=>"100",
                                     'style'=>"width:".$percent."%"
                                 ));
-                            $content.="Completed ".strval($satisfy_units->units)." of".$total_units." Units";
+                            $completed_text="Completed ";
+                            if ($percent<20){
+                                $completed_text = "";
+
+                            }
+                            
+                            $content.=$completed_text.strval($satisfy_units->units)." of ".$total_units." Units";
 
                             $content.=html_writer::end_div();
 
