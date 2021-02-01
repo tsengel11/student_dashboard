@@ -169,11 +169,12 @@ class block_student_dashboard extends block_base
                         $param_count=array('userid'=>$user_id,'courseid'=>$course_code);
                         $satisfy_units=$DB->get_record_sql($sql_count,$param_count);
 
-                        
-
                         $percent= round($satisfy_units->units/$total_units*100);
-                        $content.=html_writer::start_div('progress');
-                            $content.=html_writer::start_div('progress-bar progress-bar-warning progress-bar-striped',
+                         
+                        $print_progress_bar = '';
+                        $print_progress_bar.=html_writer::start_div('progress');
+                        
+                        $print_progress_bar.=html_writer::start_div('progress-bar progress-bar-warning progress-bar-striped',
                                 array(
                                     'role'=>"progressbar",
                                     'aria-valuenow'=>$percent,
@@ -182,17 +183,26 @@ class block_student_dashboard extends block_base
                                     'style'=>"width:".$percent."%"
                                 ));
                             $completed_text="Completed ";
-                            if ($percent<20){
-                                $completed_text = "";
-
+                            $percent_text='';
+                            if($percent>=20){
+                                $percent_text=$completed_text.strval($satisfy_units->units)." of ".$total_units." Units";   
                             }
-                            
-                            $content.=$completed_text.strval($satisfy_units->units)." of ".$total_units." Units";
 
-                            $content.=html_writer::end_div();
+                            elseif ($percent<20){
+                                $completed_text = "";
+                                $percent_text=$completed_text.strval($satisfy_units->units)." of ".$total_units." Units";   
+                                if($percent<10)
+                                {
+                                    $percent_text='';
+                                }
+                            }
+                  
+                            $print_progress_bar.=$percent_text;
 
-                        $content.=html_writer::end_div();
+                            $print_progress_bar.=html_writer::end_div();
 
+                            $print_progress_bar.=html_writer::end_div();
+                            $content.='<table style="width:80%"><tr><th style="width:130px;text-align:right">Study Progress: </th><th>'.$print_progress_bar.'</th></tr></table>';
                     }      
                     else{
 
