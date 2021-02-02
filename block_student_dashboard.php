@@ -83,11 +83,10 @@ class block_student_dashboard extends block_base
         $content .= html_writer::div($menus,"grid-container",array('style'=>'  display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         padding: 5px;'));
-
         $couse_map = array(
             'Carpentry'=>212,
             'Carpentry N'=>212,
-            'Wall'=>213,
+            'Wall'=>214,
             'Wall N'=>214,
             'Cert IV'=> 301,
             'Dip'=>668
@@ -104,9 +103,11 @@ class block_student_dashboard extends block_base
                 foreach($plan_name_array as $plan) {       
                     "";
                     $course_code = $couse_map[$plan];     
-                    // $content.= $couse_map[$plan];
+                    //$content.= $couse_map[$plan];
                     $carpentry_coursecode=212;
+                    $wall_coursecode=214;
                     $carpentry_totalunit=30;
+                    $wall_totalunit=19;
                     
                     // Checking enrollment of Grading reports
                     $sql = "SELECT count(2) as num FROM {user_enrolments} as u
@@ -128,7 +129,8 @@ class block_student_dashboard extends block_base
                         ## Counting satesfied unit number
 
                         # The carpentry units have diffrent sturtures.
-                        if($course_code==$carpentry_coursecode){
+                        if(($course_code==$carpentry_coursecode)||($course_code==$wall_coursecode))
+                        {
                             $sql_count = "SELECT 
                             COUNT(*) as units
                         FROM
@@ -145,6 +147,12 @@ class block_student_dashboard extends block_base
                         WHERE
                             grade >= 1";
                         $total_units=$carpentry_totalunit;
+
+                        // Checking the Wall and Floor Course
+                        
+    
+
+
                         $param_count=array('userid'=>$user_id,'courseid'=>$course_code);
 
                         }
@@ -166,6 +174,13 @@ class block_student_dashboard extends block_base
 
 
                         }
+
+                        if($couse_map[$plan]==214)
+                        {
+                            echo "wall";
+                            $total_units=19;
+                        }
+
                         $param_count=array('userid'=>$user_id,'courseid'=>$course_code);
                         $satisfy_units=$DB->get_record_sql($sql_count,$param_count);
 
@@ -199,10 +214,11 @@ class block_student_dashboard extends block_base
                   
                             $print_progress_bar.=$percent_text;
 
-                            $print_progress_bar.=html_writer::end_div();
+                                $print_progress_bar.=html_writer::end_div();
 
                             $print_progress_bar.=html_writer::end_div();
-                            $content.='<table style="width:80%"><tr><th style="width:130px;text-align:right">Study Progress: </th><th>'.$print_progress_bar.'</th></tr></table>';
+                            $content.='<table style="width:90%"><tr><th style="width:130px;text-align:right">Study Progress: </th><th>'.$print_progress_bar.'</th></tr></table>';
+                            $content.='<p></p>';
                     }      
                     else{
 
