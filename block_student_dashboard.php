@@ -83,6 +83,7 @@ class block_student_dashboard extends block_base
         $content .= html_writer::div($menus,"grid-container",array('style'=>'  display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         padding: 5px;'));
+        
         $couse_map = array(
             'Carpentry'=>212,
             'Carpentry N'=>212,
