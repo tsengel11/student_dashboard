@@ -26,7 +26,7 @@ $grades = get_gradecert4($user_id);
 
 echo $OUTPUT->header();
 
-//print_object($grades);
+print_object($grades);
 
 $grades_term1 = array();
 $grades_term2 = array();
@@ -36,14 +36,14 @@ $grades_term4 = array();
 $url = $CFG->wwwroot;
 foreach($grades as $grade)
 {
-    $grade->overrall = get_grade_letter($grade->overrall);
+    $grade->overall = get_grade_letter_overall($grade->overall);
     $grade->summative = get_grade_letter($grade->summative);
     $grade->written = get_grade_letter($grade->written);
     $grade->previous1 = get_grade_letter(max($grade->previous1,$grade->previous2) ) ;
     $grade->link = greate_link($grade->id,$grade->fullname,$url);
     
 
-    if (($grade->id==380||$grade->id==381||$grade->id==382||$grade->id==383)  ) {
+    if (($grade->id==380||$grade->id==381||$grade->id==382||$grade->id==383||$grade->id==468)  ) {
         array_push($grades_term1,$grade);
     }
     if (($grade->id==384||$grade->id==385||$grade->id==386||$grade->id==387)  ) {
@@ -56,9 +56,9 @@ foreach($grades as $grade)
         array_push($grades_term4,$grade);
     }
 }
-print_object($grades_term1);
 
 $templatecontext = (object)[
+    'username'=>$user_id,
     'coursename'=>'Certificate IV in Building and Construction (Building)',
     'grades'=>array_values($grades),
     'grades_term1'=>array_values($grades_term1),

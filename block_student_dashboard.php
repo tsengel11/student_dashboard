@@ -117,7 +117,7 @@ class block_student_dashboard extends block_base
                     $result = $DB->count_records_sql($sql,$param);
 
                     // If student enrolled in grading report, it will show the grading report link
-                    if ($result>0){                
+                    if ($result>0){
                         $grade_url = $link."/course/user.php?mode=grade&id=".$course_code."&user=".$user_id;
                         $grade_name = $DB->get_field('course','fullname',array('id' => $course_code));
                         # Hide for temporary
