@@ -121,6 +121,10 @@ class block_student_dashboard extends block_base
                         $grade_url = $link."/course/user.php?mode=grade&id=".$course_code."&user=".$user_id;
                         $grade_name = $DB->get_field('course','fullname',array('id' => $course_code));
                         # Hide for temporary
+                        if($course_code==301){
+                            $grade_url = $link."/blocks/student_dashboard/grade_cert4.php";
+                        }
+
                         $content .= '<li>'.html_writer::link($grade_url,$grade_name).'</li>';
                         #$content.=$DB->set_debug(true);
 

@@ -26,7 +26,7 @@ $grades = get_gradecert4($user_id);
 
 echo $OUTPUT->header();
 
-print_object($grades);
+//print_object($grades);
 
 $grades_term1 = array();
 $grades_term2 = array();
