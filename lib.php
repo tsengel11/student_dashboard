@@ -36,9 +36,9 @@ function get_grade_letter_overall($grade)
         }
         else{
             $result = '<div
-            class =" text-center text-primary" 
+            class =" text-center text-danger" 
             style = "
-            ">In progress</div>';
+            ">Not Completed Yet</div>';
         }
 
         
@@ -113,7 +113,7 @@ function get_gradecert4($userid)
                 g.finalgrade / g.rawgrademax * 100,
                 NULL)),
             1) AS 'previous1',
-    ROUND(SUM(IF(i.itemname = 'Practical Assessment',
+    ROUND(SUM(IF((i.itemname = 'Practical Assessment')||(i.itemname = 'Practical Assessment Version 1')||(i.itemname = 'Practical Assessment Version 2')||(i.itemname = 'Work Health & Safety Incident Report Form'),
                 g.finalgrade / g.rawgrademax * 100,
                 NULL)),
             1) AS 'previous2',
@@ -152,6 +152,47 @@ $result = $DB->get_records_sql($sql,$para);
 return $result;
 }
 
+function get_gradedip($userid){
+    global $DB;
+ $sql = "SELECT c.id,
+ c.fullname,
+ ROUND(SUM(IF(i.itemname = 'Written Activities'||(i.itemname = 'Written Assessment'),
+             g.finalgrade / g.rawgrademax * 100,
+             NULL)),
+         1) AS 'written',
+ ROUND(SUM(IF((i.itemname = 'Summative Activities')||(i.itemname = 'Summative Assessment'),
+             g.finalgrade / g.rawgrademax * 100,
+             NULL)),
+         1) AS 'summative',
+ ROUND(SUM(IF(i.itemtype = 'course',
+             g.finalgrade / g.rawgrademax * 100,
+             NULL)),
+         1) AS 'overall'
+FROM
+ {grade_grades} AS g
+     LEFT JOIN
+ {grade_items} AS i ON g.itemid = i.id
+     LEFT JOIN
+ {course} AS c ON i.courseid = c.id
+WHERE
+ i.courseid IN (
+     450,
+    451,
+    457,
+    487,
+    452,
+    453,
+    458,
+    547,
+    439,
+    440,
+    441)
+ AND userid = :user_id
+GROUP BY i.courseid";
+$para = ['user_id'=>$userid];
+$result = $DB->get_records_sql($sql,$para);
+return $result;
+}
 
 
 

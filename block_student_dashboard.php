@@ -124,6 +124,9 @@ class block_student_dashboard extends block_base
                         if($course_code==301){
                             $grade_url = $link."/blocks/student_dashboard/grade_cert4.php";
                         }
+                        if($course_code==668){
+                            $grade_url = $link."/blocks/student_dashboard/grade_dip.php";
+                        }
 
                         $content .= '<li>'.html_writer::link($grade_url,$grade_name).'</li>';
                         #$content.=$DB->set_debug(true);
@@ -153,9 +156,6 @@ class block_student_dashboard extends block_base
                         $total_units=$carpentry_totalunit;
 
                         // Checking the Wall and Floor Course
-                        
-    
-
 
                         $param_count=array('userid'=>$user_id,'courseid'=>$course_code);
 
@@ -174,7 +174,6 @@ class block_student_dashboard extends block_base
 
                         $param_count_total=array('courseid'=>$course_code,'itemtype'=>'mod');
                         $total_units=$DB->count_records('grade_items',$param_count_total);
-                        
 
 
                         }
