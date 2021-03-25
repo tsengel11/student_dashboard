@@ -25,7 +25,7 @@ function get_grade_letter_overall($grade)
             //$result = 'Satisfactory';
             $result = '<div
             class =" text-center" 
-            style = "
+            style = " color:green"
             ">Satisfactory</div>';
         }
         elseif ($grade==0){
@@ -38,7 +38,7 @@ function get_grade_letter_overall($grade)
             $result = '<div
             class =" text-center text-danger" 
             style = "
-            ">Not Completed Yet</div>';
+            ">Not Yet Completed</div>';
         }
 
         
@@ -63,7 +63,7 @@ function get_grade_letter($grade)
             //$result = 'Satisfactory';
             $result = '<div
             class =" text-center" 
-            style = "
+            style = " color:green"
             ">Satisfactory</div>';
         }
         elseif ($grade==50){
@@ -92,6 +92,14 @@ function get_grade_letter($grade)
 
 function greate_link($id,$name,$url){
     return '<b><a href="'.$url.'/course/view.php?id='.$id.'">'.$name.'</a></b>';
+}
+
+function get_studentdata($userid)
+{
+    global $DB;
+
+    return $DB->get_record('user',['id'=>$userid]);
+
 }
 
 

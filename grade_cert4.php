@@ -16,6 +16,11 @@ require_once($CFG->dirroot . '/blocks/student_dashboard/lib.php');
 
 $user_id = $USER->id;
 
+if(isset($_GET['id'])){
+    $user_id = $_GET['id'];
+}
+
+
 $PAGE->set_url(new moodle_url('/blocks/student_dashboard/grade_cert4.php'));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title('Grade Details');
@@ -23,6 +28,7 @@ $PAGE->set_title('Grade Details');
 // Retrieving CertIV Grades of student
 
 $grades = get_gradecert4($user_id);
+$studentdata = get_studentdata($user_id);
 
 echo $OUTPUT->header();
 
@@ -57,8 +63,11 @@ foreach($grades as $grade)
     }
 }
 
+//print_object($studentdata);
+
 $templatecontext = (object)[
-    'username'=>$user_id,
+    'studentname'=>$studentdata->firstname.$studentdata->lastname,
+    'studentemail'=>$studentdata->email,
     'coursename'=>'Certificate IV in Building and Construction (Building)',
     'grades'=>array_values($grades),
     'grades_term1'=>array_values($grades_term1),
