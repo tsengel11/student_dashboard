@@ -16,13 +16,15 @@ require_once($CFG->dirroot . '/blocks/student_dashboard/lib.php');
 
 $user_id = $USER->id;
 
-$PAGE->set_url(new moodle_url('/blocks/student_dashboard/grade_cert4.php'));
+$PAGE->set_url(new moodle_url('/blocks/student_dashboard/dip.php'));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title('Grade Details');
 
 // Retrieving CertIV Grades of student
 
-$grades = get_gradecert4($user_id);
+$grades_cert4 = get_gradecert4($user_id);
+
+$grades_dip = get_gradedip($user_id);
 
 echo $OUTPUT->header();
 
@@ -34,7 +36,7 @@ $grades_term3 = array();
 $grades_term4 = array();
 
 $url = $CFG->wwwroot;
-foreach($grades as $grade)
+foreach($grades_cert4 as $grade)
 {
     $grade->overall = get_grade_letter_overall($grade->overall);
     $grade->summative = get_grade_letter($grade->summative);
@@ -43,16 +45,25 @@ foreach($grades as $grade)
     $grade->link = greate_link($grade->id,$grade->fullname,$url);
     
 
-    if (($grade->id==380||$grade->id==381||$grade->id==382||$grade->id==383||$grade->id==468)  ) {
+    if (($grade->id==380||$grade->id==381||$grade->id==382||$grade->id==383||$grade->id==384||$grade->id==468||$grade->id==389)  ) {
         array_push($grades_term1,$grade);
     }
-    if (($grade->id==384||$grade->id==385||$grade->id==386||$grade->id==387)  ) {
+}
+foreach($grades_dip as $grade)
+{
+    $grade->overall = get_grade_letter_overall($grade->overall);
+    $grade->summative = get_grade_letter($grade->summative);
+    $grade->written = get_grade_letter($grade->written);
+    $grade->link = greate_link($grade->id,$grade->fullname,$url);
+    
+
+    if (($grade->id==487||$grade->id==457||$grade->id==451||$grade->id==450)  ) {
         array_push($grades_term2,$grade);
     }
-    if (($grade->id==388||$grade->id==389||$grade->id==390||$grade->id==391)  ) {
+    if (($grade->id==547||$grade->id==458||$grade->id==453||$grade->id==452)  ) {
         array_push($grades_term3,$grade);
     }
-    if (($grade->id==392||$grade->id==394||$grade->id==466)  ) {
+    if (($grade->id==441||$grade->id==440||$grade->id==439)  ) {
         array_push($grades_term4,$grade);
     }
 }
@@ -68,11 +79,7 @@ $templatecontext = (object)[
     'url'=>$CFG->wwwroot
 ];
 
-
-echo $OUTPUT->render_from_template('block_student_dashboard/report_cert4',$templatecontext);
-
-
+echo $OUTPUT->render_from_template('block_student_dashboard/report_diploma',$templatecontext);
 echo '<hr>';
 //echo $content;
-
 echo $OUTPUT->footer();

@@ -24,7 +24,7 @@
     <thead class="thead-light">
         <tr>
             <th style="width: 400px" class ="text-center">UNIT NAME</th>
-            <th style="width: 90px"class ="text-center">Previous Assessments*</th>
+            <th style="width: 90px"class ="text-center">Previous Assessment*</th>
             <th style="width: 90px"class ="text-center">Written Activities</th>
             <th style="width: 90px"class ="text-center">Summative Activities</th>
             <th style="width: 90px"class ="text-center">Overall</th>
@@ -42,11 +42,24 @@
         <td><b>{{{overall}}}</b></td>
         </tr>
     {{/grades_term1}}
+        </tbody>
+</table>
+<hr>
+<table class="table table-bordered table-hover" >
+    <thead class="thead-light">
+        <tr>
+            <th style="width: 400px" class ="text-center">UNIT NAME</th>
+            <th style="width: 90px"class ="text-center">Written Activities</th>
+            <th style="width: 90px"class ="text-center">Summative Activities</th>
+            <th style="width: 90px"class ="text-center">Overall</th>
+        </tr>
+        
+    </thead>
+    <tbody>
         <tr><th colspan="5">Term 2</th></tr>
     {{#grades_term2}} 
     <tr>
         <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>{{{link}}}</td>
-        <td>{{{previous1}}}</td>
         <td>{{{written}}}</td>
         <td>{{{summative}}}</td>
         <td><b>{{{overall}}}</b></td>
@@ -57,7 +70,6 @@
     {{#grades_term3}}
     <tr>
         <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>{{{link}}}</td>
-        <td>{{{previous1}}}</td>
         <td>{{{written}}}</td>
         <td>{{{summative}}}</td>
         <td><b>{{{overall}}}</b></td>
@@ -68,7 +80,6 @@
     {{#grades_term4}}
     <tr>
         <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true"></i>{{{link}}}</td>
-        <td>{{{previous1}}}</td>
         <td>{{{written}}}</td>
         <td>{{{summative}}}</td>
         <td><b>{{{overall}}}</b></td>
