@@ -16,15 +16,20 @@ require_once($CFG->dirroot . '/blocks/student_dashboard/lib.php');
 
 $user_id = $USER->id;
 
-$PAGE->set_url(new moodle_url('/blocks/student_dashboard/dip.php'));
+if(isset($_GET['id'])){
+    $user_id = $_GET['id'];
+}
+
+
+$PAGE->set_url(new moodle_url('/blocks/student_dashboard/grade_dip.php'));
 $PAGE->set_context(\context_system::instance());
 $PAGE->set_title('Grade Details');
 
-// Retrieving CertIV Grades of student
+// Retrieving Diploma Grades of student
 
-$grades_cert4 = get_gradecert4($user_id);
 
 $grades_dip = get_gradedip($user_id);
+$studentdata = get_studentdata($user_id);
 
 echo $OUTPUT->header();
 
@@ -36,6 +41,7 @@ $grades_term3 = array();
 $grades_term4 = array();
 
 $url = $CFG->wwwroot;
+
 foreach($grades_cert4 as $grade)
 {
     $grade->overall = get_grade_letter_overall($grade->overall);
@@ -49,14 +55,17 @@ foreach($grades_cert4 as $grade)
         array_push($grades_term1,$grade);
     }
 }
+
+if($USER->id==237){
+    print_object($grades_dip);
+}
+
 foreach($grades_dip as $grade)
 {
     $grade->overall = get_grade_letter_overall($grade->overall);
     $grade->summative = get_grade_letter($grade->summative);
     $grade->written = get_grade_letter($grade->written);
     $grade->link = greate_link($grade->id,$grade->fullname,$url);
-    
-
     if (($grade->id==487||$grade->id==457||$grade->id==451||$grade->id==450)  ) {
         array_push($grades_term2,$grade);
     }
@@ -69,8 +78,9 @@ foreach($grades_dip as $grade)
 }
 
 $templatecontext = (object)[
-    'username'=>$user_id,
-    'coursename'=>'Certificate IV in Building and Construction (Building)',
+    'studentname'=>$studentdata->firstname.$studentdata->lastname,
+    'studentemail'=>$studentdata->email,
+    'coursename'=>'Diploma in Building and Construction (Building)',
     'grades'=>array_values($grades),
     'grades_term1'=>array_values($grades_term1),
     'grades_term2'=>array_values($grades_term2),

@@ -62,18 +62,12 @@ foreach($grades as $grade)
         array_push($grades_term4,$grade);
     }
 }
-<<<<<<< HEAD
 
 //print_object($studentdata);
 
 $templatecontext = (object)[
     'studentname'=>$studentdata->firstname.$studentdata->lastname,
     'studentemail'=>$studentdata->email,
-=======
-
-$templatecontext = (object)[
-    'username'=>$user_id,
->>>>>>> 21d680efce28c00adc4aba629eae11fa2ea3bc21
     'coursename'=>'Certificate IV in Building and Construction (Building)',
     'grades'=>array_values($grades),
     'grades_term1'=>array_values($grades_term1),

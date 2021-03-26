@@ -10,47 +10,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 function get_grade_letter_overall($grade)
-<<<<<<< HEAD
-=======
-{
-    //die($grade);
-    $result = '';
-     if($grade == null){
-        $result = '<div
-        class "class="text-center" 
-        style = "
-        "> - </div>';
-     }
-     else
-     {
-        if($grade==100){
-            //$result = 'Satisfactory';
-            $result = '<div
-            class =" text-center" 
-            style = "
-            ">Satisfactory</div>';
-        }
-        elseif ($grade==0){
-            $result = '<div 
-            class = " text-center"
-            style = " ;
-            ">Not Enrolled</div>';
-        }
-        else{
-            $result = '<div
-            class =" text-center text-danger" 
-            style = "
-            ">Not Completed Yet</div>';
-        }
-
-        
-     }
-     return $result;
-
-}
-
-function get_grade_letter($grade)
->>>>>>> 21d680efce28c00adc4aba629eae11fa2ea3bc21
 {
     //die($grade);
     $result = '';
@@ -162,11 +121,7 @@ function get_gradecert4($userid)
                 g.finalgrade / g.rawgrademax * 100,
                 NULL)),
             1) AS 'previous1',
-<<<<<<< HEAD
     ROUND(SUM(IF((i.itemname = 'Practical Assessment')||(i.itemname = 'Practical')||(i.itemname = 'Practical Assessment Version 1')||(i.itemname = 'Practical Assessment Version 2')||(i.itemname = 'Work Health & Safety Incident Report Form'),
-=======
-    ROUND(SUM(IF((i.itemname = 'Practical Assessment')||(i.itemname = 'Practical Assessment Version 1')||(i.itemname = 'Practical Assessment Version 2')||(i.itemname = 'Work Health & Safety Incident Report Form'),
->>>>>>> 21d680efce28c00adc4aba629eae11fa2ea3bc21
                 g.finalgrade / g.rawgrademax * 100,
                 NULL)),
             1) AS 'previous2',
