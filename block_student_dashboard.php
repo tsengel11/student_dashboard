@@ -47,6 +47,7 @@ class block_student_dashboard extends block_base
         $online_lecture_url = $link."/course/view.php?id=436";
         $askliberty_url = $link."/message/index.php?id=2";
         $resources_url = $link."/course/view.php?id=435";
+        $tutorial_url = $link."/course/view.php?id=879";
 
         
         $content = '';
@@ -59,6 +60,8 @@ class block_student_dashboard extends block_base
         $link_online=html_writer::link($online_lecture_url,'Online Lectures',array('style'=>'color: #1a1a1a'));
         $link_ask=html_writer::link($askliberty_url,'Ask Liberty(9am-5pm)',array('style'=>'color: #1a1a1a'));
         $link_res=html_writer::link($resources_url,'Resources',array('style'=>'color: #1a1a1a'));
+        $link_tutorial= html_writer::link($tutorial_url,'Tutorials',array('style'=>'color: #1a1a1a'));
+
         $menus = 
          html_writer::div($link_att,'grid-item1',array('style'=>'  background-color: #62b1dc;
          border: 2px solid #e5e4e2;
@@ -75,6 +78,11 @@ class block_student_dashboard extends block_base
         padding: 10px;
         font-size: 20px;
         text-align: center;'))
+         .html_writer::div($link_tutorial,'grid-item1',array('style'=>'  background-color: #62b1dc;
+         border: 2px solid #e5e4e2;
+         padding: 10px;
+         font-size: 20px;
+         text-align: center;'))
         .html_writer::div($link_res ,'grid-item4',array('style'=>'  background-color: #A7C957;
         border: 2px solid #e5e4e2;
         padding: 10px;
@@ -83,7 +91,10 @@ class block_student_dashboard extends block_base
         $content .= html_writer::div($menus,"grid-container",array('style'=>'  display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         padding: 5px;'));
+
+
         $couse_map = array(
+            'Whitecard'=>0,
             'Carpentry'=>212,
             'Carpentry N'=>212,
             'Wall'=>214,
@@ -91,23 +102,62 @@ class block_student_dashboard extends block_base
             'Cert IV'=> 301,
             'Dip'=>668
         );
+        $couse_map_newcpc = array(
+            'Whitecard'=>0,
+            'Carpentry'=>873,
+            'Wall'=>874,
+            'Cert IV'=> 876,
+            'Dip'=>875
+        );
 
         
         # Hide for temporary
         $content .= '<hr>';
         $content .= '<h5>My Grade:</h5>';
         try{
+
+            $check_new_cpc_student = 0;
+
             $plan_name_object = $DB->get_records('user_info_data', ['userid' => $user_id]);
             $plan_name = reset($plan_name_object)->data;
             $plan_name_array = explode(" + ",$plan_name);
                 foreach($plan_name_array as $plan) {       
                     "";
-                    $course_code = $couse_map[$plan];     
-                    //$content.= $couse_map[$plan];
+
+                    $check_newcpc_sql = "SELECT 
+                        *
+                    FROM
+                        {cohort_members}
+                    WHERE
+                        cohortid IN (SELECT 
+                                id
+                            FROM
+                                {cohort}
+                            WHERE
+                                name LIKE 'new%')
+                    AND userid =:user_id";
+                    $check_newpcpc_para = ['user_id'=>$user_id];
+                    $check_new_cpc_student = $DB->record_exists_sql($check_newcpc_sql,$check_newpcpc_para);
+
                     $carpentry_coursecode=212;
                     $wall_coursecode=214;
                     $carpentry_totalunit=30;
                     $wall_totalunit=19;
+                    $course_code = $couse_map[$plan];
+                    
+                    if($check_new_cpc_student==1){
+                        $course_code = $couse_map_newcpc[$plan];
+                        $wall_totalunit=19;
+                    }
+                    //$content.= $course_code ;
+
+                    //$content.= $couse_map[$plan];
+
+
+                    // $carpentry_coursecode=212;
+                    // $wall_coursecode=214;
+                    // $carpentry_totalunit=30;
+                    // $wall_totalunit=19;
                     
                     // Checking enrollment of Grading reports
                     $sql = "SELECT count(2) as num FROM {user_enrolments} as u
@@ -121,17 +171,36 @@ class block_student_dashboard extends block_base
                         $grade_url = $link."/course/user.php?mode=grade&id=".$course_code."&user=".$user_id;
                         $grade_name = $DB->get_field('course','fullname',array('id' => $course_code));
                         # Hide for temporary
-                        if($course_code==301){
-                            $grade_url = $link."/blocks/student_dashboard/grade_cert4.php";
-                        }
-                        if($course_code==668){
-                            $grade_url = $link."/blocks/student_dashboard/grade_dip.php";
-                        }
+
+                        switch ($course_code) {
+                            case 301:
+                                $grade_url = $link."/blocks/student_dashboard/grade_cert4.php";
+                              break;
+                            case 668:
+                                $grade_url = $link."/blocks/student_dashboard/grade_dip.php";
+                              break;
+                            case 212:
+                                $grade_url = $link."/blocks/student_dashboard/grade_carp.php";
+                              break;
+                            case 874:
+                                $grade_url = $link."/blocks/student_dashboard/grade_wall_new.php";
+                              break;
+                            case 873:
+                                $grade_url = $link."/blocks/student_dashboard/grade_carp_new.php";
+                              break;
+                            case 876:
+                                $grade_url = $link."/blocks/student_dashboard/grade_cert4_new.php";
+                              break;
+                            case 875:
+                                $grade_url = $link."/blocks/student_dashboard/grade_dip_new.php";
+                              break;         
+                            default:
+                              echo "Your favorite color is neither red, blue, nor green!";
+                          }
+                        
 
                         $content .= '<li>'.html_writer::link($grade_url,$grade_name).'</li>';
                         #$content.=$DB->set_debug(true);
-
-
 
                         ## Counting satesfied unit number
 
@@ -154,9 +223,7 @@ class block_student_dashboard extends block_base
                         WHERE
                             grade >= 1";
                         $total_units=$carpentry_totalunit;
-
                         // Checking the Wall and Floor Course
-
                         $param_count=array('userid'=>$user_id,'courseid'=>$course_code);
 
                         }
@@ -174,7 +241,6 @@ class block_student_dashboard extends block_base
 
                         $param_count_total=array('courseid'=>$course_code,'itemtype'=>'mod');
                         $total_units=$DB->count_records('grade_items',$param_count_total);
-
 
                         }
 
@@ -217,7 +283,7 @@ class block_student_dashboard extends block_base
                   
                             $print_progress_bar.=$percent_text;
 
-                                $print_progress_bar.=html_writer::end_div();
+                            $print_progress_bar.=html_writer::end_div();
 
                             $print_progress_bar.=html_writer::end_div();
                             $content.='<table style="width:90%"><tr><th style="width:130px;text-align:right">Study Progress: </th><th>'.$print_progress_bar.'</th></tr></table>';

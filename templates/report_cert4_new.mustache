@@ -1,0 +1,113 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block/student_dashboard
+    Example context (json):
+    {
+    }
+}}
+<h3>Course:&nbsp<b>{{coursename}}</b> &nbsp</h3> 
+<h3>Student Name:&nbsp<b>{{studentname}}&nbsp</b>({{studentemail}})</h3>
+
+<table class="table table-bordered table-hover" >
+    <thead class="thead-light">
+        <tr>
+            <th style="width: 400px" class ="text-center">UNIT NAME</th>
+            <th style="width: 200px" class ="text-center">QUIZ</th>
+            <th style="width: 200px" class ="text-center">Assessment</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <tr><th colspan="5">Term 1</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=723">CPCCBC4001: Apply building codes and standards to the construction process for Class 1 and 10 buildings</a></td>
+        {{#users}}<td>{{{CPCCBC4001_q}}}</td><td>{{{CPCCBC4001_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=724">CPCCBC4002: Manage work health and safety in the building and construction workplace</a></td>
+        {{#users}}<td>{{{CPCCBC4002_q}}}</td><td>{{{CPCCBC4002_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=725">CPCCBC4003: Select, prepare and administer a construction contract</a></td>
+        {{#users}}<td>{{{CPCCBC4003_q}}}</td><td>{{{CPCCBC4003_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=738">CPCCBC4053: Apply building codes and standards to the construction process for Class 2 to 9, Type C Buildings</a></td>
+        {{#users}}<td>{{{CPCCBC4053_q}}}</td><td>{{{CPCCBC4053_s}}}</td>{{/users}}</tr>        
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+
+        <tr><th colspan="5">Term 2</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=726">CPCCBC4004: Identify and produce estimated costs for building and construction projects</a></td>
+        {{#users}}<td>{{{CPCCBC4004_q}}}</td><td>{{{CPCCBC4004_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=727">CPCCBC4005: Produce labour and material schedules for ordering</a></td>
+        {{#users}}<td>{{{CPCCBC4005_q}}}</td><td>{{{CPCCBC4005_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=728">CPCCBC4006: Select, procure and store construction materials for building and construction projects</a></td>
+        {{#users}}<td>{{{CPCCBC4006_q}}}</td><td>{{{CPCCBC4006_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=729">CPCCBC4007: Plan building and construction work</a></td>
+        {{#users}}<td>{{{CPCCBC4007_q}}}</td><td>{{{CPCCBC4007_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=730">CPCCBC4008: Supervise site communication and administration processes for building and construction projects</a></td>
+        {{#users}}<td>{{{CPCCBC4008_q}}}</td><td>{{{CPCCBC4008_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+
+
+
+        <tr><th colspan="5">Term 3</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=731">CPCCBC4009: Apply legal requirements to building and construction projects</a></td>
+        {{#users}}<td>{{{CPCCBC4009_q}}}</td><td>{{{CPCCBC4009_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=732">CPCCBC4010: Apply structural principles to residential and commercial constructions</a></td>
+        {{#users}}<td>{{{CPCCBC4010_q}}}</td><td>{{{CPCCBC4010_s}}}</td>{{/users}}</tr>     
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=733">CPCCBC4012: Read and interpret plans and specifications</a></td>
+        {{#users}}<td>{{{CPCCBC4012_q}}}</td><td>{{{CPCCBC4012_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=735">CPCCBC4014: Prepare simple building sketches and drawings</a></td>
+        {{#users}}<td>{{{CPCCBC4014_q}}}</td><td>{{{CPCCBC4014_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=736">CPCCBC4018: Apply site surveys and set-out procedures to building and construction projects</a></td>
+        {{#users}}<td>{{{CPCCBC4018_q}}}</td><td>{{{CPCCBC4018_s}}}</td>{{/users}}</tr>
+
+        <tr><th colspan="5">Term 4</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=740">CPCSUS4002: Use building science principles to construct energy efficient buildings</a></td>
+        {{#users}}<td>{{{CPCSUS4002_q}}}</td><td>{{{CPCSUS4002_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=734">CPCCBC4013: Prepare and evaluate tender documentation</a></td>
+        {{#users}}<td>{{{CPCCBC4013_q}}}</td><td>{{{CPCCBC4013_s}}}</td>{{/users}}</tr> 
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=737">CPCCBC4021: Minimise waste on the building and construction site</a></td>
+        {{#users}}<td>{{{CPCCBC4021_q}}}</td><td>{{{CPCCBC4021_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=722">BSBPMG422: Apply project quality management techniques</a></td>
+        {{#users}}<td>{{{BSBPMG422_q}}}</td><td>{{{BSBPMG422_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=762">BSBESB407: Manage finances for new business ventures</a></td>
+        {{#users}}<td>{{{BSBESB407_q}}}</td><td>{{{BSBESB407_s}}}</td>{{/users}}</tr>
+
+        </tbody>
+</table>
+    <div class="card">
+      <h5>Description</h5>
+      <div>
+      <b>S:</b>Student Assessment <b>Q:</b>Quiz
+      </div>  
+    </div>
+<hr>
+
+<hr>
+<input type="button" class="btn btn-primary" value="Back" onclick="location.href='https://moodle.libertycollege.edu.au/my/'">

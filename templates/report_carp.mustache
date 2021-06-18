@@ -1,0 +1,199 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block/student_dashboard
+    Example context (json):
+    {
+    }
+}}
+<h3>Course:&nbsp<b>{{coursename}}</b> &nbsp</h3> 
+<h3>Student Name:&nbsp<b>{{studentname}}&nbsp</b>({{studentemail}})</h3>
+
+<table class="table table-bordered table-hover" >
+    <thead class="thead-light">
+        <tr>
+            <th style="width: 400px" class ="text-center">UNIT NAME</th>
+            <th style="width: 200px"class ="text-center">Theory</th>
+            <th style="width: 200px"class ="text-center">Practical</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <tr><th colspan="5">Term 1</th></tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i> <a href="https://moodle.libertycollege.edu.au/course/view.php?id=210">
+        CPCCOHS2001A: Apply OHS requirements, policies and procedures in the construction industry</a></td>
+        {{#users}}
+        {{{cpccohs2001a}}} 
+        {{{cpccohs2001a_practical}}}
+        {{/users}}
+    </tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCM1012A: Work effectively and sustainably in the construction industry</td>
+        {{#users}} 
+        {{{cpcccm1012a}}}
+        {{{cpcccm1012a_practical}}}
+        {{/users}}
+    </tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCM1013A: Plan and organise work</td>
+        {{#users}} 
+        {{{cpcccm1013a}}}
+        {{{cpcccm1013a_practical}}}
+        {{/users}}
+    </tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCM1014A: Conduct workplace communication</td>
+        {{#users}} 
+        {{{cpcccm1014a}}}
+        {{{cpcccm1014a_practical}}}
+        {{/users}}
+    </tr>
+    <tr><th colspan="5">Term 2</th></tr>
+        <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCM1015A: Carry out measurements and calculations</td>
+        {{#users}} 
+        {{{cpcccm1015a}}}
+        {{{cpcccm1015a_practical}}}
+        {{/users}}
+    </tr>
+        <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCM2001A: Read and interpret plans and specifications</td>
+        {{#users}} 
+        {{{cpcccm2001a}}}
+        {{{cpcccm2001a_practical}}}
+        {{/users}}
+    </tr>
+            <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA2011A: Handle carpentry materials</td>
+        {{#users}} 
+        {{{cpccca2011a}}}
+        {{{cpccca2011a_practical}}}
+        {{/users}}
+    </tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA2002B: Use carpentry tools and equipment</td>
+        {{#users}} 
+        {{{cpccca2002b}}}
+        {{{cpccca2002b_practical}}}
+        {{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA3002A: Carry out setting out</td>
+        {{#users}} {{{cpccca3002a}}}{{{cpccca3002a_practical}}}{{/users}}
+    </tr>
+    <tr><th colspan="5">Term 3</th></tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA3003A: Install flooring systems</td>
+        {{#users}} {{{cpccca3003a}}}{{{cpccca3003a_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA3004A: Construct wall frames</td>
+        {{#users}} {{{cpccca3004a}}}{{{cpccca3004a_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCSH3008: Install internal shop walls and fixtures</td>
+        {{#users}} {{{cpccsh3008}}}{{{cpccsh3008_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA3010A: Install and replace windows and doors</td>
+        {{#users}} {{{cpccca3010a}}}{{{cpccca3010a_practical}}}{{/users}}
+    </tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA3017B: Install exterior cladding</td>
+        {{#users}} {{{cpccca3017b}}}{{{cpccca3017b_practical}}}{{/users}}
+    </tr>
+    <tr><th colspan="5">Term 4</th></tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA3007C: Construct pitched roofs</td>
+        {{#users}} {{{cpccca3007c}}}{{{cpccca3007c_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA3005B: Construct ceiling frames</td>
+        {{#users}} {{{cpccca3005b}}}{{{cpccca3005b_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA3008B: Construct eaves</td>
+        {{#users}} {{{cpccca3008b}}}{{{cpccca3008b_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA3006B: Erect roof trusses</td>
+        {{#users}} {{{cpccca3006b}}}{{{cpccca3006b_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA3023A: Carry out levelling operations</td>
+        {{#users}} {{{cpccca3023a}}}{{{cpccca3023a_practical}}}{{/users}}
+    </tr>
+        <tr><th colspan="5">Term 5</th></tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCM2007B: Use explosive power tools</td>
+        {{#users}} {{{cpcccm2007b}}}{{{cpcccm2007b_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCM2002A: Carry out excavation</td>
+        {{#users}} {{{cpcccm2002a}}}{{{cpcccm2002a_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCM2010B: Work safely at heights</td>
+        {{#users}} {{{cpcccm2010b}}}{{{cpcccm2010b_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCM2008B: Erect and dismantle restricted height scaffolding</td>
+        {{#users}} {{{cpcccm2008b}}}{{{cpcccm2008b_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA3001A: Carry out general demolition of minor building structures</td>
+        {{#users}} {{{cpccca3001a}}}{{{cpccca3001a_practical}}}{{/users}}
+    </tr>
+    <tr><th colspan="5">Term 6</th></tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCSF2004A: Place and fix reinforcement materials
+        {{#users}} {{{cpccsf2004a}}}{{{cpccsf2004a_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCO2013A: Carry out concreting to simple forms</td>
+        {{#users}} {{{cpccco2013a}}}{{{cpccco2013a_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>CPCCCA2003A: Erect and dismantle formwork for footings and slabs on ground</td>
+        {{#users}} {{{cpccca2003a}}}{{{cpccca2003a_practical}}}{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>BSBSMB406: Manage small business finances</td>
+        {{#users}} {{{bsbsmb406}}}<td>No Practical</td>{{/users}}
+    </tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i>BSBSMB301: Investigate micro business opportunities</td>
+        {{#users}} {{{bsbsmb301}}}{{{bsbsmb301_practical}}}{{/users}}
+    </tr>
+        </tbody>
+</table>
+    <div class="card">
+      <h5>Description</h5>
+      <div>
+      <b>SW:</b> Practical Assessment - SWMS ; <b>PH:</b>Practical Assessment - Photo ;<b>PA:</b>Practical Assessment <b>Q:</b>Quiz
+      </div>  
+    </div>
+<hr>
+
+<hr>
+<input type="button" class="btn btn-primary" value="Back" onclick="location.href='https://moodle.libertycollege.edu.au/my/'">

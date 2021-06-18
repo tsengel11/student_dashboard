@@ -10,9 +10,11 @@
  */
 require_once(dirname(__FILE__) . '/../../config.php');
 
-global $DB, $USER, $CFG;
+require_login();
 
-require_once($CFG->dirroot . '/blocks/student_dashboard/lib.php');
+global $DB, $USER, $CFG;
+require_once($CFG->dirroot . '/blocks/student_dashboard/locallib.php');
+
 
 $user_id = $USER->id;
 
@@ -31,7 +33,8 @@ $grades = get_gradecert4($user_id);
 $studentdata = get_studentdata($user_id);
 
 echo $OUTPUT->header();
-
+try
+        {
 //print_object($grades);
 
 $grades_term1 = array();
@@ -42,10 +45,10 @@ $grades_term4 = array();
 $url = $CFG->wwwroot;
 foreach($grades as $grade)
 {
-    $grade->overall = get_grade_letter_overall($grade->overall);
-    $grade->summative = get_grade_letter($grade->summative);
-    $grade->written = get_grade_letter($grade->written);
-    $grade->previous1 = get_grade_letter(max($grade->previous1,$grade->previous2) ) ;
+    $grade->overall = convert_overall($grade->overall);
+    $grade->summative = get_grade_letter_1($grade->summative);
+    $grade->written = get_grade_letter_1($grade->written);
+    $grade->previous1 = get_grade_letter_1(max($grade->previous1,$grade->previous2) ) ;
     $grade->link = greate_link($grade->id,$grade->fullname,$url);
     
 
@@ -76,7 +79,11 @@ $templatecontext = (object)[
     'grades_term4'=>array_values($grades_term4),
     'url'=>$CFG->wwwroot
 ];
-
+}
+catch(Exception $e)
+{
+    echo "Message:".$e->getMessage();
+}
 
 echo $OUTPUT->render_from_template('block_student_dashboard/report_cert4',$templatecontext);
 

@@ -1,0 +1,133 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block/student_dashboard
+    Example context (json):
+    {
+    }
+}}
+<h3>Course:&nbsp<b>{{coursename}}</b> &nbsp</h3> 
+<h3>Student Name:&nbsp<b>{{studentname}}&nbsp</b>({{studentemail}})</h3>
+
+<table class="table table-bordered table-hover" >
+    <thead class="thead-light">
+        <tr>
+            <th style="width: 400px" class ="text-center">UNIT NAME</th>
+            <th style="width: 200px" class ="text-center">QUIZ</th>
+            <th style="width: 200px" class ="text-center">Assessment</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <tr><th colspan="5">Term 1</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=723">CPCCBC4001: Apply building codes and standards to the construction process for Class 1 and 10 buildings</a></td>
+        {{#users}}<td>{{{CPCCBC4001_q}}}</td><td>{{{CPCCBC4001_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=725">CPCCBC4003: Select, prepare and administer a construction contract</a></td>
+        {{#users}}<td>{{{CPCCBC4003_q}}}</td><td>{{{CPCCBC4003_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=726">CPCCBC4004: Identify and produce estimated costs for building and construction projects</a></td>
+        {{#users}}<td>{{{CPCCBC4004_q}}}</td><td>{{{CPCCBC4004_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=727">CPCCBC4005: Produce labour and material schedules for ordering</a></td>
+        {{#users}}<td>{{{CPCCBC4005_q}}}</td><td>{{{CPCCBC4005_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=730">CPCCBC4008: Supervise site communication and administration processes for building and construction projects</a></td>
+        {{#users}}<td>{{{CPCCBC4008_q}}}</td><td>{{{CPCCBC4008_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=731">CPCCBC4009: Apply legal requirements to building and construction projects</a></td>
+        {{#users}}<td>{{{CPCCBC4009_q}}}</td><td>{{{CPCCBC4009_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=732">CPCCBC4010: Apply structural principles to residential and commercial constructions</a></td>
+        {{#users}}<td>{{{CPCCBC4010_q}}}</td><td>{{{CPCCBC4010_s}}}</td>{{/users}}</tr>     
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=733">CPCCBC4012: Read and interpret plans and specifications</a></td>
+        {{#users}}<td>{{{CPCCBC4012_q}}}</td><td>{{{CPCCBC4012_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=734">CPCCBC4013: Prepare and evaluate tender documentation</a></td>
+        {{#users}}<td>{{{CPCCBC4013_q}}}</td><td>{{{CPCCBC4013_s}}}</td>{{/users}}</tr> 
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=735">CPCCBC4014: Prepare simple building sketches and drawings</a></td>
+        {{#users}}<td>{{{CPCCBC4014_q}}}</td><td>{{{CPCCBC4014_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=736">CPCCBC4018: Apply site surveys and set-out procedures to building and construction projects</a></td>
+        {{#users}}<td>{{{CPCCBC4018_q}}}</td><td>{{{CPCCBC4018_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=738">CPCCBC4053: Apply building codes and standards to the construction process for Class 2 to 9, Type C Buildings</a></td>
+        {{#users}}<td>{{{CPCCBC4053_q}}}</td><td>{{{CPCCBC4053_s}}}</td>{{/users}}</tr>  
+
+        <tr><th colspan="5">Term 2</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=863">CPCCBC5001: Apply building codes and standards to the construction</a></td>
+        {{#users}}<td>{{{CPCCBC5001_q}}}</td><td>{{{CPCCBC5001_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=864">CPCCBC5002: Monitor costing systems on complex building</a></td>
+        {{#users}}<td>{{{CPCCBC5002_q}}}</td><td>{{{CPCCBC5002_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=865">CPCCBC5003: Supervise the planning of on-site building</a></td>
+        {{#users}}<td>{{{CPCCBC5003_q}}}</td><td>{{{CPCCBC5003_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=868">CPCCBC5010: Manage construction work</a></td>
+        {{#users}}<td>{{{CPCCBC5010_q}}}</td><td>{{{CPCCBC5010_s}}}</td>{{/users}}</tr>
+
+        <tr><th colspan="5">Term 3</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=866">CPCCBC5005: Select and manage building and construction contractors</a></td>
+        {{#users}}<td>{{{CPCCBC5005_q}}}</td><td>{{{CPCCBC5005_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=867">CPCCBC5007: Administer the legal obligations of a building and construction contractor</a></td>
+        {{#users}}<td>{{{CPCCBC5007_q}}}</td><td>{{{CPCCBC5007_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=869">CPCCBC5011: Manage environmental management practices and processes in building and construction</a></td>
+        {{#users}}<td>{{{CPCCBC5011_q}}}</td><td>{{{CPCCBC5011_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=870">CPCCBC5013: Manage professional technical and legal reports on building and construction projects</a></td>
+        {{#users}}<td>{{{CPCCBC5013_q}}}</td><td>{{{CPCCBC5013_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=871">CPCCBC5018: Apply structural principles to the construction of buildings up to three storeys</a></td>
+        {{#users}}<td>{{{CPCCBC5018_q}}}</td><td>{{{CPCCBC5018_s}}}</td>{{/users}}</tr>
+
+
+        <tr><th colspan="5">Term 4</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=878">CPCCBC4052: Lead And Manage Teams In The Building And Construction Industry</a></td>
+        {{#users}}<td>{{{CPCCBC4052_q}}}</td><td>{{{CPCCBC4052_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=872">CPCCBC5019: Manage building and construction business finances</a></td>
+        {{#users}}<td>{{{CPCCBC5019_q}}}</td><td>{{{CPCCBC5019_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=849">BSBWHS513: Lead WHS risk management</a></td>
+        {{#users}}<td>{{{BSBWHS513_q}}}</td><td>{{{BSBWHS513_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=848">BSBPMG538: Manage project stakeholder engagement</a></td>
+        {{#users}}<td>{{{BSBPMG538_q}}}</td><td>{{{BSBPMG538_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=847">BSBPMG532: Manage project quality</a></td>
+        {{#users}}<td>{{{BSBPMG532_q}}}</td><td>{{{BSBPMG532_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=846">BSBOPS504: Manage business risk</a></td>
+        {{#users}}<td>{{{BSBOPS504_q}}}</td><td>{{{BSBOPS504_s}}}</td>{{/users}}</tr>
+        </tbody>
+</table>
+    <div class="card">
+      <h5>Description</h5>
+      <div>
+      <b>S:</b>Student Assessment <b>Q:</b>Quiz
+      </div>  
+    </div>
+<hr>
+
+<hr>
+<input type="button" class="btn btn-primary" value="Back" onclick="location.href='https://moodle.libertycollege.edu.au/my/'">

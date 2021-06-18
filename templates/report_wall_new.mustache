@@ -1,0 +1,144 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block/student_dashboard
+    Example context (json):
+    {
+    }
+}}
+<h3>Course:&nbsp<b>{{coursename}}</b> &nbsp</h3> 
+<h3>Student Name:&nbsp<b>{{studentname}}&nbsp</b>({{studentemail}})</h3>
+
+<table class="table table-bordered table-hover" >
+    <thead class="thead-light">
+        <tr>
+            <th style="width: 400px" class ="text-center">UNIT NAME</th>
+            <th style="width: 200px" class ="text-center">QUIZ</th>
+            <th style="width: 200px" class ="text-center">Assessment</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <tr><th colspan="5">Term 1</th></tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=844">
+        CPCCOHS2001: Apply OHS requirements, policies and procedures in the construction industry</a></td>
+        {{#users}}
+        <td>{{{CPCCWHS2001_q}}}</td>
+        {{/users}}
+    </tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=835">
+        CPCCCM1012: Work effectively and sustainably in the construction industry</a></td>
+        {{#users}}
+        <td>{{{CPCCOM1012_q}}}</td>
+        {{/users}}
+    </tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=836">CPCCCM1013: Plan and organise work</a></td>
+        {{#users}}
+        <td>{{{CPCCOM1013_q}}}</td>
+        <td>{{{CPCCOM1013_s}}}</td>
+        {{/users}}
+    </tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=837">CPCCCM1014: Conduct workplace communication</a></td>
+        {{#users}}
+        <td>{{{CPCCOM1014_q}}}</td>
+        <td>{{{CPCCOM1014_s}}}</td>
+        {{/users}}
+    </tr>
+
+        <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=838">CPCCCM1015: Carry out measurements and calculations</a></td>
+        {{#users}}
+        <td>{{{CPCCOM1015_q}}}</td>
+        <td>{{{CPCCOM1015_s}}}</td>
+        {{/users}}
+    </tr>
+        <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=830">CPCCCM2006: Apply basic levelling procedures</a></td>
+        {{#users}}
+        <td>{{{CPCCCM2006_q}}}</td>
+        <td>{{{CPCCCM2006_s}}}</td>
+        {{/users}}
+    </tr>
+    <tr><th colspan="5">Term 2</th></tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=771">CPCCWF3001: Prepare surfaces for tiling application</a></td>
+        {{#users}}<td>{{{CPCCWF3001_q}}}</td><td>{{{CPCCWF3001_s}}}</td>{{/users}}</tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=769">CPCCWF2001: Handle wall and floor tiling materials</a></td>
+        {{#users}}<td>{{{CPCCWF2001_q}}}</td><td>{{{CPCCWF2001_s}}}</td>{{/users}}</tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=768">CPCCOM2001: Read and interpret plans and specifications</a></td>
+        {{#users}} <td>{{{CPCCOM2001_q}}}</td><td>{{{CPCCOM2001_s}}}</td>{{/users}}</tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+    </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=770">CPCCWF2002: Use wall and floor tiling tools and equipment</a></td>
+        {{#users}} <td>{{{CPCCWF2002_q}}}</td><td>{{{CPCCWF2002_s}}}</td>{{/users}}</tr>
+    <tr><th colspan="5">Term 3</th></tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=778">CPCCWF3009: Apply waterproofing for wall and floor tiling</a></td>
+        {{#users}}<td>{{{CPCCWF3009_q}}}</td><td>{{{CPCCWF3009_s}}}</td>{{/users}}</tr>
+    <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+    </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=772">CPCCWF3002: Install floor tiles</a></td>
+        {{#users}}<td>{{{CPCCWF3002_q}}}</td><td>{{{CPCCWF3002_s}}}</td>{{/users}}</tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+    </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=773">CPCCWF3003: Install wall tiles</a></td>
+        {{#users}} <td>{{{CPCCWF3003_q}}}</td><td>{{{CPCCWF3003_s}}}</td>{{/users}}</tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+    </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=774">CPCCWF3004: Repair wall and floor tiling</a></td>
+        {{#users}} <td>{{{CPCCWF3004_q}}}</td><td>{{{CPCCWF3004_s}}}</td>{{/users}}</tr>
+    <tr><th colspan="5">Term 4</th></tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=777">CPCCWF3007: Tile curved surfaces
+        </a></td>
+        {{#users}}<td>{{{CPCCWF3007_q}}}</td><td>{{{CPCCWF3007_s}}}</td>{{/users}}</tr>
+    <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+    </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=776">CPCCWF3006: Install mosaic tiling</a></td>
+        {{#users}}<td>{{{CPCCWF3006_q}}}</td><td>{{{CPCCWF3006_s}}}</td>{{/users}}</tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+    </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=775">CPCCWF3005: Install decorative tiling
+    </a></td>
+        {{#users}} <td>{{{CPCCWF3003_q}}}</td><td>{{{CPCCWF3003_s}}}</td>{{/users}}</tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+    </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=761">BSBESB301: Investigate business opportunities
+    </a></td>
+        {{#users}} <td>{{{BSBESB301_q}}}</td><td>{{{BSBESB301_s}}}</td>{{/users}}</tr>
+    <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+    </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=762">BSBESB407: Manage finances for new business ventures
+    </a></td>
+        {{#users}} <td>{{{BSBESB407_q}}}</td><td>{{{BSBESB407_s}}}</td>{{/users}}</tr>
+
+        </tbody>
+</table>
+    <div class="card">
+      <h5>Description</h5>
+      <div>
+      <b>S:</b>Student Assessment <b>Q:</b>Quiz
+      </div>  
+    </div>
+<hr>
+
+<hr>
+<input type="button" class="btn btn-primary" value="Back" onclick="location.href='https://moodle.libertycollege.edu.au/my/'">

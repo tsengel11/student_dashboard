@@ -9,10 +9,10 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require_once(dirname(__FILE__) . '/../../config.php');
-
+require_login();
 global $DB, $USER, $CFG;
 
-require_once($CFG->dirroot . '/blocks/student_dashboard/lib.php');
+require_once($CFG->dirroot . '/blocks/student_dashboard/locallib.php');
 
 $user_id = $USER->id;
 
@@ -29,11 +29,12 @@ $PAGE->set_title('Grade Details');
 
 
 $grades_dip = get_gradedip($user_id);
+$grades_cert4 = get_gradecert4($user_id);
 $studentdata = get_studentdata($user_id);
 
 echo $OUTPUT->header();
 
-//print_object($grades);
+//print_object($grades_dip);
 
 $grades_term1 = array();
 $grades_term2 = array();
@@ -44,10 +45,10 @@ $url = $CFG->wwwroot;
 
 foreach($grades_cert4 as $grade)
 {
-    $grade->overall = get_grade_letter_overall($grade->overall);
-    $grade->summative = get_grade_letter($grade->summative);
-    $grade->written = get_grade_letter($grade->written);
-    $grade->previous1 = get_grade_letter(max($grade->previous1,$grade->previous2) ) ;
+    $grade->overall = convert_overall($grade->overall);
+    $grade->summative = get_grade_letter_1($grade->summative);
+    $grade->written = get_grade_letter_1($grade->written);
+    $grade->previous1 = get_grade_letter_1(max($grade->previous1,$grade->previous2) ) ;
     $grade->link = greate_link($grade->id,$grade->fullname,$url);
     
 
@@ -56,16 +57,17 @@ foreach($grades_cert4 as $grade)
     }
 }
 
-if($USER->id==237){
-    print_object($grades_dip);
-}
-
+// if($USER->id==237){
+//     print_object($grades_dip);
+// }
+print_object($grades_dip);
 foreach($grades_dip as $grade)
 {
-    $grade->overall = get_grade_letter_overall($grade->overall);
-    $grade->summative = get_grade_letter($grade->summative);
-    $grade->written = get_grade_letter($grade->written);
+    $grade->overall = convert_overall($grade->overall);
+    $grade->summative = get_grade_letter_1($grade->summative);
+    $grade->written = get_grade_letter_1($grade->written);
     $grade->link = greate_link($grade->id,$grade->fullname,$url);
+
     if (($grade->id==487||$grade->id==457||$grade->id==451||$grade->id==450)  ) {
         array_push($grades_term2,$grade);
     }
@@ -81,7 +83,6 @@ $templatecontext = (object)[
     'studentname'=>$studentdata->firstname.$studentdata->lastname,
     'studentemail'=>$studentdata->email,
     'coursename'=>'Diploma in Building and Construction (Building)',
-    'grades'=>array_values($grades),
     'grades_term1'=>array_values($grades_term1),
     'grades_term2'=>array_values($grades_term2),
     'grades_term3'=>array_values($grades_term3),

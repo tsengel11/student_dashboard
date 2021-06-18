@@ -1,0 +1,14 @@
+[26-Mar-2021 15:32:29 Australia/Brisbane] PHP Fatal error:  Cannot redeclare get_grade_letter_overall() (previously declared in /home/lcau999/moodle.libertycollege.edu.au/blocks/student_dashboard/locallib.php:12) in /home/lcau999/moodle.libertycollege.edu.au/blocks/lib.php on line 48
+[26-Mar-2021 15:34:02 Australia/Brisbane] PHP Fatal error:  Cannot redeclare get_grade_letter_overall() (previously declared in /home/lcau999/moodle.libertycollege.edu.au/blocks/student_dashboard/locallib.php:12) in /home/lcau999/moodle.libertycollege.edu.au/blocks/lib.php on line 48
+[26-Mar-2021 15:34:04 Australia/Brisbane] PHP Fatal error:  Cannot redeclare get_grade_letter_overall() (previously declared in /home/lcau999/moodle.libertycollege.edu.au/blocks/student_dashboard/locallib.php:12) in /home/lcau999/moodle.libertycollege.edu.au/blocks/lib.php on line 48
+[26-Mar-2021 15:34:28 Australia/Brisbane] PHP Fatal error:  Cannot redeclare get_grade_letter_overall() (previously declared in /home/lcau999/moodle.libertycollege.edu.au/blocks/student_dashboard/locallib.php:12) in /home/lcau999/moodle.libertycollege.edu.au/blocks/lib.php on line 48
+[26-Mar-2021 15:34:30 Australia/Brisbane] PHP Fatal error:  Cannot redeclare get_grade_letter_overall() (previously declared in /home/lcau999/moodle.libertycollege.edu.au/blocks/student_dashboard/locallib.php:12) in /home/lcau999/moodle.libertycollege.edu.au/blocks/lib.php on line 48
+[26-Mar-2021 15:35:02 Australia/Brisbane] PHP Fatal error:  Cannot redeclare get_grade_letter() (previously declared in /home/lcau999/moodle.libertycollege.edu.au/blocks/student_dashboard/locallib.php:50) in /home/lcau999/moodle.libertycollege.edu.au/blocks/lib.php on line 91
+[26-Mar-2021 15:51:47 Australia/Brisbane] Default exception handler: Exception - Call to undefined function get_grade_letter_overall() Debug: 
+Error code: generalexceptionmessage
+* line 65 of /blocks/student_dashboard/grade_dip.php: Error thrown
+
+[26-Mar-2021 15:53:11 Australia/Brisbane] Default exception handler: Exception - Call to undefined function get_grade_letter_overall() Debug: 
+Error code: generalexceptionmessage
+* line 66 of /blocks/student_dashboard/grade_dip.php: Error thrown
+

@@ -1,0 +1,176 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block/student_dashboard
+    Example context (json):
+    {
+    }
+}}
+<h3>Course:&nbsp<b>{{coursename}}</b> &nbsp</h3> 
+<h3>Student Name:&nbsp<b>{{studentname}}&nbsp</b>({{studentemail}})</h3>
+
+<table class="table table-bordered table-hover" >
+    <thead class="thead-light">
+        <tr>
+            <th style="width: 400px" class ="text-center">UNIT NAME</th>
+            <th style="width: 200px" class ="text-center">QUIZ</th>
+            <th style="width: 200px" class ="text-center">Assessment</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <tr><th colspan="5">Term 1</th></tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=844">
+        CPCCOHS2001: Apply OHS requirements, policies and procedures in the construction industry</a></td>
+        {{#users}}
+        <td>{{{CPCCWHS2001_q}}}</td>
+        {{/users}}
+    </tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=835">
+        CPCCCM1012: Work effectively and sustainably in the construction industry</a></td>
+        {{#users}}
+        <td>{{{CPCCOM1012_q}}}</td>
+        {{/users}}
+    </tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=836">CPCCCM1013: Plan and organise work</a></td>
+        {{#users}}
+        <td>{{{CPCCOM1013_q}}}</td>
+        <td>{{{CPCCOM1013_s}}}</td>
+        {{/users}}
+    </tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=837">CPCCCM1014: Conduct workplace communication</a></td>
+        {{#users}}
+        <td>{{{CPCCOM1014_q}}}</td><td>{{{CPCCOM1014_s}}}</td>
+        {{/users}}
+    </tr>
+
+        <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=838">CPCCCM1015: Carry out measurements and calculations</a></td>
+        {{#users}}<td>{{{CPCCOM1015_q}}}</td> <td>{{{CPCCOM1015_s}}}</td>{{/users}}
+    </tr>
+    <tr>
+        <td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=845">CPCWHS3001: Identify construction work hazards and select risk </a></td>
+        {{#users}}<td>{{{CPCWHS3001_q}}}</td><td>{{{CPCWHS3001_s}}}</td>{{/users}}
+    </tr>
+    <tr><th colspan="5">Term 2</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=827">CPCCCA3025: Read and interpret plans, specifications</a></td>
+        {{#users}}<td>{{{CPCCCA3025_q}}}</td><td>{{{CPCCCA3025_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=833">CPCCCM3005: Calculate costs of construction work</a></td>
+        {{#users}}<td>{{{CPCCCM3005_q}}}</td><td>{{{CPCCCM3005_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=839">CPCCOM3001: Perform construction calculations to determine</a></td>
+        {{#users}}<td>{{{CPCCOM3001_q}}}</td><td>{{{CPCCOM3001_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=812">CPCCCA2011: Handle carpentry materials</a></td>
+        {{#users}}<td>{{{CPCCCA2011_q}}}</td><td>{{{CPCCCA2011_s}}}</td>{{/users}}</tr>        
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=811">CPCCCA2002: Use carpentry tools and equipment</a></td>
+        {{#users}}<td>{{{CPCCCA2002_q}}}</td><td>{{{CPCCCA2002_s}}}</td>{{/users}}</tr>    
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=814">CPCCCA3002: Carry out setting out</a></td>
+        {{#users}}<td>{{{CPCCCA3002_q}}}</td><td>{{{CPCCCA3002_s}}}</td>{{/users}}</tr>
+        <tr><th colspan="5">Term 3</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=830">CPCCCM2006: Apply basic levelling procedures</a></td>
+        {{#users}}<td>{{{CPCCCM2006_q}}}</td><td>{{{CPCCCM2006_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=815">CPCCCA3003: Install flooring systems</a></td>
+        {{#users}}<td>{{{CPCCCA3003_q}}}</td><td>{{{CPCCCA3003_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=829">CPCCCA3028: Erect and dismantle formwork for footings and</a></td>
+        {{#users}}<td>{{{CPCCCA3028_q}}}</td><td>{{{CPCCCA3028_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=825">CPCCCA3019: Erect and dismantle formwork to suspended slabs...</a></td>
+        {{#users}}<td>{{{CPCCCA3019_q}}}</td><td>{{{CPCCCA3019_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=841">CPCCON3048: Construct tilt panels on site</a></td>
+        {{#users}}<td>{{{CPCCON3048_q}}}</td><td>{{{CPCCON3048_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=842">CPCCSF2004: Place and fix reinforcement materials</a></td>
+        {{#users}}<td>{{{CPCCSF2004_q}}}</td><td>{{{CPCCSF2004_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=816">CPCCCA3004: Construct and erect wall frames</a></td>
+        {{#users}}<td>{{{CPCCCA3004_q}}}</td><td>{{{CPCCCA3004_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=831">CPCCCM2008: Erect and dismantle restricted height scaffolding</a></td>
+        {{#users}}<td>{{{CPCCCM2008_q}}}</td><td>{{{CPCCCM2008_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=832">CPCCCM2012: Work safely at heights</a></td>
+        {{#users}}<td>{{{CPCCCM2012_q}}}</td><td>{{{CPCCCM2012_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=818">CPCCCA3006: Erect roof trusses</a></td>
+        {{#users}}<td>{{{CPCCCA3006_q}}}</td><td>{{{CPCCCA3006_s}}}</td>{{/users}}</tr>
+        <tr><th colspan="5">Term 4</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=820">CPCCCA3008: Construct eaves</a></td>
+        {{#users}}<td>{{{CPCCCA3008_q}}}</td><td>{{{CPCCCA3008_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=817">CPCCCA3005: Construct ceiling frames</a></td>
+        {{#users}}<td>{{{CPCCCA3005_q}}}</td><td>{{{CPCCCA3005_s}}}</td>{{/users}}</tr>     
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=821">CPCCCA3010: Install windows and doors</a></td>
+        {{#users}}<td>{{{CPCCCA3010_q}}}</td><td>{{{CPCCCA3010_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=826">CPCCCA3024: Install lining, panelling and moulding</a></td>
+        {{#users}}<td>{{{CPCCCA3024_q}}}</td><td>{{{CPCCCA3024_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=822">CPCCCA3014: Construct and install bulkheads</a></td>
+        {{#users}}<td>{{{CPCCCA3014_q}}}</td><td>{{{CPCCCA3014_s}}}</td>{{/users}}</tr>
+        <tr><th colspan="5">Term 5</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=813">CPCCCA3001: Carry out general demolition of minor</a></td>
+        {{#users}}<td>{{{CPCCCA3001_q}}}</td><td>{{{CPCCCA3001_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=824">CPCCCA3017: Install exterior cladding</a></td>
+        {{#users}}<td>{{{CPCCCA3017_q}}}</td><td>{{{CPCCCA3017_s}}}</td>{{/users}}</tr> 
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=819">CPCCCA3007: Construct pitched roofs</a></td>
+        {{#users}}<td>{{{CPCCCA3007_q}}}</td><td>{{{CPCCCA3007_s}}}</td>{{/users}}</tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=823">CPCCCA3016: Construct, assemble and install timber external...</a></td>
+        {{#users}}<td>{{{CPCCCA3016_q}}}</td><td>{{{CPCCCA3016_s}}}</td>{{/users}}</tr>
+        <tr><th colspan="5">Term 6</th></tr>
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=840">CPCCOM3006: Carry out levelling operations</a></td>
+        {{#users}}<td>{{{CPCCOM3006_q}}}</td><td>{{{CPCCOM3006_s}}}</td>{{/users}}</tr>     
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=828">CPCCCA3027: Set up, operate and maintain indirect action</a></td>
+        {{#users}}<td>{{{CPCCCA3027_q}}}</td><td>{{{CPCCCA3027_s}}}</td>{{/users}}</tr>  
+        <tr><td><i class="icon fa fa-graduation-cap fa-fw " aria-hidden="true">
+        </i><a href="https://moodle.libertycollege.edu.au/course/view.php?id=834">CPCCCO2013: Carry out concreting to simple forms</a></td>
+        {{#users}}<td>{{{CPCCCO2013_q}}}</td><td>{{{CPCCCO2013_s}}}</td>{{/users}}</tr>                          
+        </tbody>
+</table>
+    <div class="card">
+      <h5>Description</h5>
+      <div>
+      <b>S:</b>Student Assessment <b>Q:</b>Quiz
+      </div>  
+    </div>
+<hr>
+
+<hr>
+<input type="button" class="btn btn-primary" value="Back" onclick="location.href='https://moodle.libertycollege.edu.au/my/'">
